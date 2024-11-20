@@ -1,7 +1,9 @@
 import customtkinter as ctk
-from PIL import Image, ImageTk
+from PIL import Image
 
-ctk.set_appearance_mode("system")  # "Dark" или "Light"
+from MainScreen import MainScreen
+
+ctk.set_appearance_mode("dark")  # "Dark" или "Light"
 ctk.set_default_color_theme("blue")
 
 class SplashScreen(ctk.CTk):
@@ -78,9 +80,12 @@ class SplashScreen(ctk.CTk):
         button_exit = ctk.CTkButton(
             self, text="Выход", command=self.on_exit, width=200)
         button_exit.grid(row=6, column=1, padx=15, pady=15, sticky="ew")
+        
+        self.after(60000, lambda: self.destroy())
 
     def on_next(self):
-        print("Кнопка 'Далее' нажата")
+        self.destroy()
+        MainScreen()
 
     def on_exit(self):
         self.destroy()
