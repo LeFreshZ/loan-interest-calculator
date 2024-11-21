@@ -1,12 +1,13 @@
 import customtkinter as ctk
 from PIL import Image
 
-from MainScreen import MainScreen
+from MainWindow import MainWindow
 
 ctk.set_appearance_mode("dark")  # "Dark" или "Light"
 ctk.set_default_color_theme("blue")
 
-class SplashScreen(ctk.CTk):
+
+class SplashWindow(ctk.CTk):
     def __init__(self):
         super().__init__()
 
@@ -15,8 +16,9 @@ class SplashScreen(ctk.CTk):
         self.geometry("600x600")
         self.resizable(False, False)  # Отключаем изменение размера окна
         self.grid_columnconfigure((0, 1), weight=1)
-        
-        self.image = ctk.CTkImage(Image.open("./Images/SplashScreen.png"), size=(175, 175))
+
+        self.image = ctk.CTkImage(Image.open(
+            "./Images/SplashScreen.png"), size=(175, 175))
 
         # Верхний заголовок
         ctk.CTkLabel(self, text="Белорусский национальный технический университет", font=("Arial", 14)).grid(
@@ -49,15 +51,15 @@ class SplashScreen(ctk.CTk):
 
         # Информация о студенте
         student_frame = ctk.CTkFrame(self, fg_color=self.cget("bg"))
-        student_frame.grid(row=3, column=1, pady=(20, 0), padx=(20, 0), sticky="n")
+        student_frame.grid(row=3, column=1, pady=(
+            20, 0), padx=(20, 0), sticky="n")
         ctk.CTkLabel(student_frame, text="Выполнил студент группы 10701223", font=(
             "Arial", 12)).pack(anchor="w")
         ctk.CTkLabel(student_frame, text="Гупанов Андрей Русланович",
                      font=("Arial", 12)).pack(anchor="w")
-        
-        
+
         ctk.CTkLabel(self, image=self.image, text="").grid(row=3, column=0, rowspan=2,
-                             pady=(20, 0), sticky="n")
+                                                           pady=(20, 0), sticky="n")
 
         # Информация о преподавателе
         teacher_frame = ctk.CTkFrame(self, fg_color=self.cget("bg"))
@@ -78,19 +80,16 @@ class SplashScreen(ctk.CTk):
         button_next.grid(row=6, column=0, padx=15, pady=15, sticky="ew")
 
         button_exit = ctk.CTkButton(
-            self, text="Выход", command=self.on_exit, width=200)
+            self, text="Выход", command=self.destroy, width=200)
         button_exit.grid(row=6, column=1, padx=15, pady=15, sticky="ew")
-        
+
         self.after(60000, lambda: self.destroy())
 
     def on_next(self):
         self.destroy()
-        MainScreen()
-
-    def on_exit(self):
-        self.destroy()
+        MainWindow()
 
 
 if __name__ == "__main__":
-    app = SplashScreen()
+    app = SplashWindow()
     app.mainloop()
