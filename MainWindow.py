@@ -5,6 +5,7 @@ from AboutAuthorWindow import AboutAuthorWindow
 from AboutProgramWindow import AboutProgramWindow
 from HelpWindow import HelpWindow
 from LoanCalculator import LoanCalculator
+from LoanOrigin import LoanOrigin
 
 
 class MainWindow(ctk.CTk):
@@ -41,7 +42,7 @@ class MainWindow(ctk.CTk):
         self.Procent_TB = ctk.CTkEntry(input_frame)
         self.Procent_TB.grid(row=1, column=1, padx=10, pady=5, sticky="ew")
 
-        ctk.CTkLabel(input_frame, text="Срок кредита:", width=140).grid(
+        ctk.CTkLabel(input_frame, text="Срок кредита (в месяцах):", width=140).grid(
             row=2, column=0, sticky="w", pady=5)
         self.Time_TB = ctk.CTkEntry(input_frame)
         self.Time_TB.grid(row=2, column=1, padx=10, pady=5, sticky="ew")
@@ -101,24 +102,24 @@ class MainWindow(ctk.CTk):
     def calculate(self):
         try:
             res = LoanCalculator.calculate(
-                self.CredSum_TB.get(), self.Procent_TB.get(), self.Time_TB.get())
+                LoanOrigin(self.CredSum_TB.get(), self.Procent_TB.get(), self.Time_TB.get()))
         except Exception as e:
             mb.showerror("Ошибка", f"Произошла ошибка: {e}")
             return
 
         self.ResMonth_TB.configure(state="normal")
         self.ResMonth_TB.delete(0, "end")
-        self.ResMonth_TB.insert(0, f"{res[0]:.2f}")
+        self.ResMonth_TB.insert(0, f"{res.get_monthly_payment():.2f}")
         self.ResMonth_TB.configure(state="disabled")
 
         self.ResSum_TB.configure(state="normal")
         self.ResSum_TB.delete(0, "end")
-        self.ResSum_TB.insert(0, f"{res[1]:.2f}")
+        self.ResSum_TB.insert(0, f"{res.get_total_payment():.2f}")
         self.ResSum_TB.configure(state="disabled")
 
         self.OverPrice_TB.configure(state="normal")
         self.OverPrice_TB.delete(0, "end")
-        self.OverPrice_TB.insert(0, f"{res[2]:.2f}")
+        self.OverPrice_TB.insert(0, f"{res.get_overpayment():.2f}")
         self.OverPrice_TB.configure(state="disabled")
 
     def about_author(self):

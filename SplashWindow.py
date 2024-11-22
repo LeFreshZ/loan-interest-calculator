@@ -3,7 +3,7 @@ from PIL import Image
 
 from MainWindow import MainWindow
 
-ctk.set_appearance_mode("dark")  # "Dark" или "Light"
+ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
 
