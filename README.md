@@ -26,7 +26,7 @@
 1. Убедитесь, что у вас установлен Python 3.8 или новее.
 2. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/your-username/loan-calculator.git
+   git clone https://github.com/LeFreshZ/loan-interest-calculator.git
    ```
 3. Перейдите в папку проекта:
    ```bash
