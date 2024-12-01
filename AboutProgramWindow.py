@@ -45,7 +45,7 @@ class AboutProgramWindow(ctk.CTkToplevel):
             "Arial", 12)).pack(anchor="w", pady=2)
         ctk.CTkLabel(description_frame, text="Коэффициент аннуитета:",
                      font=("Arial", 12)).pack(anchor="w")
-        ctk.CTkLabel(description_frame, text="A = P * (1+P)^N / ((1+P)^N - 1), где",
+        ctk.CTkLabel(description_frame, text="A = P * (1 + P)^N / ((1 + P)^N - 1), где",
                      font=("Arial", 12)).pack(anchor="w", pady=2)
         ctk.CTkLabel(description_frame, text="A — коэффициент аннуитета; P — процентная ставка (в долях);", font=(
             "Arial", 12)).pack(anchor="w", pady=2)
@@ -61,7 +61,7 @@ class AboutProgramWindow(ctk.CTkToplevel):
 
         ctk.CTkLabel(description_frame, text="3. Узнать переплату по кредиту.", font=(
             "Arial", 12)).pack(anchor="w", pady=(10, 2))
-        ctk.CTkLabel(description_frame, text="Sp = (N*A - 1) * K",
+        ctk.CTkLabel(description_frame, text="Sp = (N * A - 1) * K",
                      font=("Arial", 12)).pack(anchor="w", pady=2)
 
         # Кнопка "Назад", которая закрывает окно "О программе"

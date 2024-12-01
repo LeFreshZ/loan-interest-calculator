@@ -69,6 +69,7 @@ class MainWindow(ctk.CTk):
         self.Calc_BTN = ctk.CTkButton(
             main_frame, text="Рассчитать", command=self.calculate, width=150)
         self.Calc_BTN.grid(row=1, column=0, pady=20, sticky="n")
+        self.bind("<Return>", self.calculate)
 
         # Фрейм для отображения результатов расчета
         output_frame = ctk.CTkFrame(main_frame, fg_color=self.cget("bg"))
@@ -126,7 +127,7 @@ class MainWindow(ctk.CTk):
             side_panel, text="Выход", width=120, command=self.destroy)
         self.Exit_BTN.pack(side="bottom", pady=20)
 
-    def calculate(self):
+    def calculate(self, e=None) -> None:
         """
         Выполняет расчет кредита на основе введенных данных.
         Результаты (ежемесячный платеж, общая сумма выплат, переплата) выводятся в соответствующие поля.
@@ -153,25 +154,25 @@ class MainWindow(ctk.CTk):
         self.OverPrice_TB.insert(0, f"{res.get_overpayment():.2f}")
         self.OverPrice_TB.configure(state="disabled")
 
-    def about_author(self):
+    def about_author(self) -> None:
         """
         Открывает окно с информацией об авторе программы.
         """
         AboutAuthorWindow(self)
 
-    def about_program(self):
+    def about_program(self) -> None:
         """
         Открывает окно с информацией о программе.
         """
         AboutProgramWindow(self)
 
-    def help_info(self):
+    def help_info(self) -> None:
         """
         Открывает окно с информацией о том, как использовать программу.
         """
         HelpWindow(self)
 
-    def clear_fields(self):
+    def clear_fields(self) -> None:
         """
         Очищает все поля ввода и результатов, возвращая их в исходное состояние.
         """

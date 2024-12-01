@@ -95,7 +95,7 @@ class SplashWindow(ctk.CTk):
         self.after(60000, lambda: self.destroy())
 
     # Метод для перехода к главному окну
-    def on_next(self):
+    def on_next(self) -> None:
         """
         Закрывает текущее окно и открывает главное окно приложения.
         """
