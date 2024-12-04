@@ -83,13 +83,11 @@ class SplashWindow(ctk.CTk):
             row=5, column=0, columnspan=2, pady=(20, 10), sticky="n")
 
         # Кнопки для перехода и выхода
-        button_next = ctk.CTkButton(
-            self, text="Далее", command=self.on_next, width=200)
-        button_next.grid(row=6, column=0, padx=15, pady=15, sticky="ew")
+        ctk.CTkButton(
+            self, text="Далее", command=self.on_next, width=200).grid(row=6, column=0, padx=15, pady=15, sticky="ew")
 
-        button_exit = ctk.CTkButton(
-            self, text="Выход", command=self.destroy, width=200)
-        button_exit.grid(row=6, column=1, padx=15, pady=15, sticky="ew")
+        ctk.CTkButton(
+            self, text="Выход", command=self.destroy, width=200).grid(row=6, column=1, padx=15, pady=15, sticky="ew")
 
         # Закрыть окно через 60 секунд
         self.after(60000, lambda: self.destroy())

@@ -43,8 +43,7 @@ class AboutAuthorWindow(ctk.CTkToplevel):
                      font=("Arial", 14)).pack(pady=5)
 
         # Кнопка "Назад", которая закрывает окно и возвращает пользователя в предыдущее окно
-        back_button = ctk.CTkButton(
-            main_frame, text="Назад", width=150, height=35, command=self.destroy)
-        back_button.pack(pady=15)
+        ctk.CTkButton(
+            main_frame, text="Назад", width=150, height=35, command=self.destroy).pack(pady=15)
 
         self.mainloop()
