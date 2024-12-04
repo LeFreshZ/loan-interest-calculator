@@ -16,6 +16,7 @@ class AboutAuthorWindow(ctk.CTkToplevel):
         super().__init__(master)
         self.title("О авторе")  # Заголовок окна
         self.geometry("300x450")  # Размеры окна
+        self.attributes('-topmost', True)
         self.resizable(False, False)  # Окно нельзя изменять по размеру
 
         # Загружаем изображение автора, которое будет отображаться в окне
@@ -45,3 +46,5 @@ class AboutAuthorWindow(ctk.CTkToplevel):
         back_button = ctk.CTkButton(
             main_frame, text="Назад", width=150, height=35, command=self.destroy)
         back_button.pack(pady=15)
+
+        self.mainloop()

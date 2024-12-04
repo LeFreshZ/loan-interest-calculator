@@ -127,6 +127,8 @@ class MainWindow(ctk.CTk):
             side_panel, text="Выход", width=120, command=self.destroy)
         self.Exit_BTN.pack(side="bottom", pady=20)
 
+        self.mainloop()
+
     def calculate(self, e=None) -> None:
         """
         Выполняет расчет кредита на основе введенных данных.

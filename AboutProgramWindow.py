@@ -16,6 +16,7 @@ class AboutProgramWindow(ctk.CTkToplevel):
         super().__init__(master)
         self.title("О программе")  # Заголовок окна
         self.geometry("750x550")  # Размеры окна
+        self.attributes('-topmost', True)
         self.resizable(False, False)  # Окно нельзя изменять по размеру
 
         # Загружаем изображение, которое будет отображаться в окне
@@ -67,3 +68,5 @@ class AboutProgramWindow(ctk.CTkToplevel):
         # Кнопка "Назад", которая закрывает окно "О программе"
         ctk.CTkButton(main_frame, text="Назад", width=150, height=35, command=self.destroy).grid(
             row=2, column=0, columnspan=2, pady=(20, 0))
+
+        self.mainloop()

@@ -15,6 +15,7 @@ class HelpWindow(ctk.CTkToplevel):
         super().__init__(master)
         self.title("Справка")  # Заголовок окна
         self.geometry("600x500")  # Размеры окна
+        self.attributes('-topmost', True)
         self.resizable(False, False)  # Окно нельзя изменять по размеру
 
         # Основной фрейм, содержащий все элементы интерфейса окна
@@ -58,3 +59,5 @@ class HelpWindow(ctk.CTkToplevel):
         # Кнопка "Назад", которая закрывает окно справки
         ctk.CTkButton(main_frame, text="Назад", width=150, height=35,
                       command=self.destroy).grid(row=3, column=0, pady=30, padx=(100, 0))
+
+        self.mainloop()
