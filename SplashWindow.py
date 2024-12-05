@@ -23,7 +23,7 @@ class SplashWindow(ctk.CTk):
         # Настроим колонки для растяжения
         self.grid_columnconfigure((0, 1), weight=1)
 
-        # Загружаем изображение для экрана загрузки
+        # Загружаем изображение для экрана загрузк`и
         self.image = ctk.CTkImage(Image.open(
             "./Images/SplashScreen.png"), size=(175, 175))
 

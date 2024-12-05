@@ -190,9 +190,9 @@ class MainWindow(ctk.CTk):
         """
         Очищает все поля ввода и результатов, возвращая их в исходное состояние.
         """
-        for field_name in ["CredSum_TB", "Procent_TB", "Time_TB", "ResMonth_TB", "ResSum_TB", "OverPrice_TB"]:
+        for field_name in ["credSum_TB", "procent_TB", "time_TB", "resMonth_TB", "resSum_TB", "overPrice_TB"]:
             field = getattr(self, field_name)
             field.configure(state="normal")
             field.delete(0, "end")
-            if field_name in ["ResMonth_TB", "ResSum_TB", "OverPrice_TB"]:
+            if field_name in ["resMonth_TB", "resSum_TB", "overPrice_TB"]:
                 field.configure(state="disabled")
